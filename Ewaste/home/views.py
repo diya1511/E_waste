@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.models import auth , User 
 from django.contrib.auth  import authenticate,  login, logout
 def home(request):
-    return render(request,"index.html")
+    return render(request,"home/home.html")
  
 def about(request) :
     return render(request,"about.html")
