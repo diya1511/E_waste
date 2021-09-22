@@ -116,7 +116,7 @@ li a.contact:hover {
     font-size: 25px;
   }
   .menu-btn:focus {
-    color: #DE847B;
+    color: #CDD193;;
   }
 }
 @media (max-width: 375px) {
