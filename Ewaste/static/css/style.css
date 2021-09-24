@@ -1,32 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
 @font-face {
   font-family: AstroSpace;
   src: url(/fonts/AstroSpace.ttf);
 }
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  background-color: BACC81;
+  background-color: #CDD193;
 }
+
 header {
   background-color: #013A20;
 }
+
 .main-nav {
   height: 90px;
 }
 .logo img {
-  color: white;
-  line-height: 90px;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-left: 30px;
-  font-family: "AstroSpace", sans-serif;
-  align-items: center;
-  height: 70px;
   margin-top: 10px;
-
+  height: 70px;
 }
 
 
@@ -37,10 +32,12 @@ header {
   margin: 0;
   padding: 0;
 }
+
 .navlinks li {
   display: inline-block;
   margin: 0px 20px;
 }
+
 .navlinks li a {
   color: white;
   text-decoration: none;
@@ -48,35 +45,41 @@ header {
   transition: all 0.3s linear 0s;
   text-transform: uppercase;
 }
+
 .navlinks li a:hover {
-  color: #BACC81;
+  color:  #CDD193;
   padding-bottom: 7px;
-  border-bottom: 2px solid #BACC81;
+  border-bottom: 2px solid  #CDD193;
 }
+
 li a.contact {
-  background-color: #CDD193;
+  background-color:  #CDD193;
   padding: 9px 20px;
   border-radius: 50px;
   transition: all 0.3s ease 0s;
   border-bottom: none;
 }
+
 li a.contact:hover {
-  background-color: #BACC81;
+  background-color: #4b9b5c;
   color: white;
   border-bottom: none;
 }
+
 #check {
   display: none;
 }
+
 .menu-btn {
   font-size: 25px;
-  color: #DE847B;
+  color: white;
   float: right;
   line-height: 90px;
   margin-right: 40px;
   display: none;
   cursor: pointer;
 }
+
 @media (max-width: 800px) {
   .navlinks {
     position: fixed;
@@ -85,52 +88,44 @@ li a.contact:hover {
     text-align: center;
     transition: all 0.5s;
     right: -100%;
-    background: #222831;
+    background:  #CDD193;
+  }
+  .logo{
+    margin-top: 12px;
   }
   .navlinks li {
     display: block;
   }
+
   .navlinks li a {
     font-size: 20px;
   }
+
   .navlinks li a:hover {
     border-bottom: none;
   }
+
   .menu-btn {
     display: block;
   }
+
   #check:checked ~ .navlinks {
     right: 0;
   }
 }
 
 @media (max-width: 360px) {
-  .logo img {
+  .logo {
     margin-left: 10px;
     font-size: 25px;
-    height: 60px;
-    margin-top: 14px;
   }
+
   .menu-btn {
     margin-right: 10px;
     font-size: 25px;
   }
+
   .menu-btn:focus {
-    color: #CDD193;;
+    color: white;
   }
 }
-@media (max-width: 375px) {
-  .logo img {
-    margin-left: 10px;
-    font-size: 25px;
-    height: 60px;
-    margin-top: 14px;
-  }}
-
-  @media (max-width: 425px) {
-    .logo img {
-      margin-left: 10px;
-      font-size: 25px;
-      height: 60px;
-      margin-top: 14px;
-    }}
