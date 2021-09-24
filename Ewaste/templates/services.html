@@ -3,4 +3,74 @@
 {% load static %}
 
 {% block content %}
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+       
+    }
+    .head{
+        text-align: center;
+        
+
+    }
+    .maincard{
+         display: flex;
+        justify-content: center;
+        flex-direction: column; 
+    }
+    .card img{
+        height: 26vh;
+        width:100%;
+    }
+
+</style>
+
+<div class="head"><h3>Our Services</h3></div>
+<div class="maincard">
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{%static 'img/11(1).jpg'%}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Opportunity to Explore your E-Waste</h5>
+          <p class="card-text">We will provide you the platform where you can make the utilization of E-Waste</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{%static 'img/11 (2).jpg'%}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Create life</h5>
+          <p class="card-text">Green and healthy direction enhancement can be ensured</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{%static 'img/11 (3).jpg'%}" class="img-fluid rounded-start" alt="..." >
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Enlighten the future</h5>
+          <p class="card-text">Through this platform you can generate the constructive future</p>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
  {% endblock content%}
