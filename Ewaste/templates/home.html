@@ -323,6 +323,30 @@
           <li><a href="/services">Services</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact" class="contact">Contact</a></li>
+        {% if user.is_authenticated %}
+          <div class="btn">
+                            <ul class="navbar-nav mr-2">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" style="font-size: medium;color: black;"> Welcome
+                                        {{request.user}}</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/lout">Logout</a>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+          {% else %}
+          <li>
+            <button type="button" class="btn btn-success"  onClick="parent.location='lin'" data-bs-toggle="modal" data-bs-target="#loginModal">
+              Login
+            </button></li>
+            
+            <button type="button" class="btn btn-success" onClick="parent.location='register'" data-bs-toggle="modal" data-bs-target="#signupModal">
+              Sign up
+            </button></li>
+            {% endif %}
         </ul>
       </nav>
     </header>

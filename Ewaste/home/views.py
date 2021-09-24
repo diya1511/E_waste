@@ -6,6 +6,8 @@ from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth.models import auth , User 
 from django.contrib.auth  import authenticate,  login, logout
+from django.contrib.auth.decorators import login_required
+import logging
 def home(request):
     return render(request,"home.html")
  
@@ -28,60 +30,64 @@ def services(request) :
 
 
 
-def handleSignUp(request):
-    if request.method=="POST":
-        # parameters
-        username=request.POST['username']
-        email=request.POST['email']
-        firstname=request.POST['firstname']
-        lname=request.POST['lname']
-        pass1=request.POST['pass1']
-        pass2=request.POST['pass2']
-
-        # check for errorneous input
-        if len(username)<10:
-            messages.error(request, " Your user name must be under 10 characters")
-            return redirect('/')
-
-        if not username.isalnum():
-            messages.error(request, " User name should only contain letters and numbers")
-            return redirect('/')
-        if (pass1!= pass2):
-             messages.error(request, " Passwords do not match")
-             return redirect('/')
-        # Create the user
-        myuser = User.objects.create_user(username, email, pass1)
-        myuser.first_name= firstname
-        myuser.last_name= lname
-        myuser.save()
-        messages.success(request, "hi"+firstname+"your account has beet successfully created")
-        return redirect('/')
-
+def register(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     else:
-        return HttpResponse("404 - Not found")
+        if request.method == 'POST':
+            name = request.POST['name']
+            email = request.POST['email']
+            username = request.POST['username']
+            password = request.POST['password']
+            password2 = request.POST['password2']
+            coun = request.POST['coun']
+            gen = request.POST['gen']
+            a = request.POST['a']
+            
+            
+            if len(username)>10 and len(username)<5:
+                messages.error(request,"Username must be under 10 characters and more than 5characters")
+                return redirect('register')
 
-def handeLogin(request):
-    if request.method=="POST":
-        # Get the post parameters
-        loginuser=request.POST['loginuser']
-        loginpassword=request.POST['loginpassword']
-
-        user=authenticate(username= loginuser, password= loginpassword)
-        if user is not None:
-            login(request, user)
-            messages.success(request, "Successfully Logged In")
-            return redirect("/")
+            if password == password2 :
+                if User.objects.filter(email=email).exists():
+                    messages.info(request , 'Email already used')
+                    return redirect('register')
+                elif User.objects.filter(username=username).exists():
+                    messages.info(request , 'Username Already Used' )
+                    return redirect('register')
+                else:
+                    user = User.objects.create_user(email=email , username=username ,password=password)
+                    user.name = name 
+                    user.save();
+                    messages.success(request,"Your account has been succesfully created !!!")
+                    return redirect('/lin')
+            else:
+                messages.info(request , 'Password is not same, try again !!!')
+                return redirect('register')
         else:
-            messages.error(request, "Invalid credentials! Please try again")
-            return redirect("/")
+                return render(request , 'register.html')
 
-    return HttpResponse("404- Not found")
-   
+def lin(request):
+    
+        if request.method == 'POST':
+                loginusername = request.POST ['loginusername']
+                loginpassword = request.POST['loginpassword']
 
-    return HttpResponse("login")
+                user = authenticate(request,username=loginusername , password=loginpassword)
+                print(user)
+                if user is not None:
+                        login(request , user)
+                        messages.success(request,"Successfully logged in")
+                        return redirect('home')
+                else:
+                    messages.error(request , 'invalid credentials, please try again')
+                    return redirect('login')
+        else: 
+            return render ( request , 'login.html')
 
-def handelLogout(request):
+@login_required
+def lout(request):
     logout(request)
     messages.success(request, "Successfully logged out")
-    return redirect('home')
- 
+    return redirect('/')
