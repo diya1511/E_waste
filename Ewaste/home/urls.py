@@ -3,12 +3,14 @@ from django.urls import path,include
 from home import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path("",views.home, name='home') ,
     path("home/",views.home, name='home') ,
     path("about/",views.about, name='about') ,
     path("contact/",views.contact, name='contact') ,
     path("services/",views.services, name='services') ,
-    path('login/' , views.login , name = 'login'),
+    path('signup/' , views.handleSignUp , name = 'signup'),
+    path('login/', views.handeLogin, name="handleLogin"),
+    path('logout/', views.handelLogout, name="handleLogout"),
    
 ]
