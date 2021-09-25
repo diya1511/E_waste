@@ -205,12 +205,12 @@
 <body>
     <header>
       <nav class="main-nav">
-        <input type="checkbox" id="check" />
-        <label for="check" class="menu-btn">
+         <input type="checkbox" id="check" />
+           <label for="check" class="menu-btn">
           <i class="fas fa-bars"></i>
-        </label>
-        <a href="/home" class="logo"> <img src="{%static 'img/frame.png'%}" /></a>
-        <ul class="navlinks">
+           </label>
+            <a href="/home" class="logo"> <img src="{%static 'img/frame.png'%}" /></a>
+          <ul class="navlinks">
           <li><a href="/services">Services</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact" class="contact">Contact</a></li>
@@ -241,7 +241,7 @@
     </div>
     </form>
 
-</nav>
+
 {% for message in messages %}
 <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
     <strong>Message : </strong> {{ message }}
@@ -251,8 +251,9 @@
 </div>
 {% endfor %}
 </ul>
-      </nav>
-    </header>
+</nav>
+</header>
+    
 
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{%load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -313,27 +313,27 @@
 </style>
 <body>
     <header>
-       <nav class="main-nav">
-        <input type="checkbox" id="check" />
-        <label for="check" class="menu-btn">
+      <nav class="main-nav">
+         <input type="checkbox" id="check" />
+           <label for="check" class="menu-btn">
           <i class="fas fa-bars"></i>
-        </label>
-        <a href="/home" class="logo"><img src="/static/img/frame.png" /> </a>
-        <ul class="navlinks">
+           </label>
+            <a href="/home" class="logo"> <img src="{%static 'img/frame.png'%}" /></a>
+          <ul class="navlinks">
           <li><a href="/services">Services</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact" class="contact">Contact</a></li>
-        {% if user.is_authenticated %}
+          {% if user.is_authenticated %}
           <div class="btn">
                             <ul class="navbar-nav mr-2">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button"
                                         data-toggle="dropdown" style="font-size: medium;color:white;"> Welcome
                                         {{request.user}}</a>
-                                    
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="/lout">Logout</a>
 
-                                    
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -347,10 +347,14 @@
               Sign up
             </button></li>
             {% endif %}
-        </ul>
-      </nav>
-    </header>
+    </div>
+    </form>
+</ul>
+</nav>
+</header>
     
+
+
   
      
 
