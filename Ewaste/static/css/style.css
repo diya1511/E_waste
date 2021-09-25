@@ -38,19 +38,19 @@ header {
   margin: 0px 20px;
 }
 
-.navlinks li a {
+/* .navlinks li a {
   color: white;
   text-decoration: none;
   font-size: 18px;
   transition: all 0.3s linear 0s;
   text-transform: uppercase;
-}
+} */
 
-.navlinks li a:hover {
+/* .navlinks li a:hover {
   color:  #CDD193;
   padding-bottom: 7px;
   border-bottom: 2px solid  #CDD193;
-}
+} */
 
 li a.contact {
   background-color:  #CDD193;
